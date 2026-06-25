@@ -1,22 +1,39 @@
+/* --- Custom Font Setup --- */
+@font-face {
+    font-family: 'Aldrich';
+    src: url('Fonts/Aldrich-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* --- Global Styles --- */
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 100;
+    padding: 1;
+    font-family: 'Aldrich', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background-color: #1a1a1a; /* Dark background - classic for game dev portfolios */
+    /* Set your background image */
+    background-image: url('Images/mountainbackground.png');
+    background-size: cover;       /* Scales the image to completely fill the screen width */
+    background-position: top center; /* CRITICAL: Starts the image perfectly at the top */
+    background-repeat: no-repeat;  /* Prevents the image from tiling/repeating */
+    background-attachment: scroll; /* CRITICAL: Allows the image to move naturally when you scroll */
+    
+    /* Fallback background color in case the image takes a second to load */
+    background-color: #1a1a1a; 
+    
     color: #f0f0f0;
     display: flex;
     justify-content: center;
-    padding: 40px 20px;
+    padding: 100px 20px;
 }
 
 .portfolio-container {
     width: 100%;
-    max-width: 800px; /* Keeps the layout neat and centered */
+    max-width: 800px;
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -24,7 +41,9 @@ body {
 
 /* --- Header / Title --- */
 .portfolio-header {
-    background-color: #2a2a2a;
+    /* Added an alpha channel (last number) to make the background slightly transparent */
+    background-color: rgba(56, 71, 58, 0.85); 
+    backdrop-filter: blur(5px); /* Gives a sleek blurred-glass effect over the mountain image */
     border: 2px solid #444;
     padding: 20px;
     text-align: center;
@@ -34,12 +53,13 @@ body {
 .portfolio-header h1 {
     font-size: 2.5rem;
     letter-spacing: 2px;
-    color: #00ffcc; /* Accent color for a nice dev vibe */
+    color: #f5e837;
 }
 
 /* --- Bio Section --- */
 .portfolio-bio {
-    background-color: #2a2a2a;
+    background-color: rgba(56, 71, 58, 0.85);
+    backdrop-filter: blur(5px);
     border: 2px solid #444;
     padding: 20px;
     border-radius: 8px;
@@ -53,28 +73,27 @@ body {
     gap: 20px;
 }
 
-/* Making the entire row a clickable link */
 .project-card {
     display: flex;
-    background-color: #2a2a2a;
+    background-color: rgba(56, 71, 58, 0.85);
+    backdrop-filter: blur(5px);
     border: 2px solid #444;
     border-radius: 8px;
     overflow: hidden;
-    text-decoration: none; /* Removes underline from links */
+    text-decoration: none;
     color: inherit;
-    transition: transform 0.2s ease, border-color 0.2s ease;
+    transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
 }
 
-/* Hover effect to show it's clickable */
 .project-card:hover {
     transform: translateY(-3px);
-    border-color: #00ffcc;
-    background-color: #333;
+    border-color: #f5e837;
+    background-color: rgba(51, 51, 51, 0.95);
 }
 
 /* Left Box: Image/Icon */
 .project-image-box {
-    width: 180px; /* Fixed width for the image slot */
+    width: 180px;
     min-width: 180px;
     background-color: #111;
     display: flex;
@@ -85,7 +104,7 @@ body {
 .project-icon {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Prevents stretching of your project images */
+    object-fit: cover;
 }
 
 /* Right Box: Text Details */
@@ -98,7 +117,7 @@ body {
 }
 
 .project-details h3 {
-    color: #00ffcc;
+    color: #f5e837;
     font-size: 1.4rem;
 }
 
@@ -111,7 +130,7 @@ body {
 /* --- Responsive Layout for Mobile Devices --- */
 @media (max-width: 600px) {
     .project-card {
-        flex-direction: column; /* Stacks image on top of text on small screens */
+        flex-direction: column;
     }
     
     .project-image-box {
