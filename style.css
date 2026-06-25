@@ -40,16 +40,30 @@ body {
 }
 
 /* --- Header / Title --- */
+/* --- Header / Title --- */
 .portfolio-header {
-    /* Added an alpha channel (last number) to make the background slightly transparent */
     background-color: rgba(56, 71, 58, 0.85); 
-    backdrop-filter: blur(5px); /* Gives a sleek blurred-glass effect over the mountain image */
+    backdrop-filter: blur(5px); 
     border: 2px solid #444;
     padding: 20px;
     text-align: center;
     border-radius: 8px;
+    
+    /* Cleaned up: Removed the inner vertical flex stacking since the image left the building */
 }
 
+/* Updated: Styled as an independent floating element above the box */
+.portfolio-avatar {
+    width: 250px;  
+    height: 250px;
+    border-radius: 50%;
+    border: 3px solid #f5e837; 
+    object-fit: cover;
+    
+    /* Centering an independent element: 0 top, auto sides, 24px bottom gap to push the box away */
+    display: block;
+    margin: 0 auto 24px auto; 
+}
 .portfolio-header h1 {
     font-size: 2.5rem;
     letter-spacing: 2px;
